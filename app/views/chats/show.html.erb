@@ -1,2 +1,21 @@
-<h1>Chats#show</h1>
-<p>Find me in app/views/chats/show.html.erb</p>
+<div>
+    <h1> Chat <%= @chat.session_id %> </h1>
+    
+    
+    <%= turbo_stream_from "chat_messages_#{ @chat.id }" %>
+    <div id="chat_messages_<%= @chat.id %>">
+        <% @chat.chat_messages.each do |message| %>
+            <%= render partial: "chat_messages/chat_message", locals: { chat_message: message } %>
+        <% end %>
+    </div>
+
+    <div>
+        <form method="POST" action="/chat_messages" data-controller="chat-message-form" data-action="turbo: submit-end->chat-message-form#reset">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <input type="hidden" name="chat_id" value="<%= @chat.id %>">
+            <textarea name="chat_message[content]"></textarea>
+
+            <div><button type="submit"> Send </button></div>
+        </form>
+    </div>
+</div>

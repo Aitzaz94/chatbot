@@ -1,2 +1,22 @@
-<h1>Chats#index</h1>
-<p>Find me in app/views/chats/index.html.erb</p>
+<h1> Chats with me: </h1>
+
+<div> <%= button_to "Create Chat", chats_path, method: :post, data: { turbo: false } %> </div>
+
+<div>
+    <% if !@chats.empty? %>
+        <%= @chats.each do |chat| %>
+            <%# <%= link_to "", chats_path %>
+            <%= link_to chat_path(chat.session_id) do %>
+                <span><%= chat.session_id %></span>
+            <% end %>
+            <%= chat.created_at.strftime('%B %d, %Y') %>
+            <%= chat.chat_messages.first.content.truncate(100) %>
+            
+    
+            <div> Read Chat </div>
+            <%= chat.created_at.strftime('%B %d, %Y') %>
+        <% end %>
+    <% else %>
+        <p><h4> No Chat to display </h4></p>
+    <% end %>
+</div>
