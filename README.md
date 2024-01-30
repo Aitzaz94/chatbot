@@ -54,4 +54,6 @@ Congratulations! You've successfully created an intelligent chat bot with OpenAI
 
 Happy coding!
 
+For detailed steps and guide you may have a look: https://medium.com/@aitzazakmal/building-an-ai-powered-chat-bot-with-openai-in-ruby-on-rails-a-step-by-step-guide-0dada4c1885d
+
 #AI #ChatBot #OpenAI #RubyOnRails #TechnologyInnovation #ArtificialIntelligence #DeveloperJourney #NaturalLanguageProcessing #TechInnovation #FutureTech #CodingLife
